@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <title>Prueba 1</title>
+  </head>
+
+  <body>
+    <div id="question">
+      <h1>Prueba número 2</h1>
+      <img src="yume-fatness.jpg">
+
+      <p><strong>Penta</strong> es un pinguino al que su novia <strong>Penko</strong> le ha dejado por comer mucho y estar muy gordo</p>
+      <p>¡Ayuda a Penta a adelgazar! Pero ten cuidado porque el nuevo novio de Penko <strong>Ginji</strong> le lanzará comida para que engorde</p>
+      <p> Si consigues hacer en una partida más puntos que <strong>tu madre</strong>, ella te dará la contraseña para poder continuar. Puedes intentarlo tantas veces como quieras.</p>
+      <h2>Contraseña:</h2>
+      <div>
+          <input type="password" id="password">
+      </div>
+
+      <div>
+          <button onClick="check()" class="button">¡Ya he puesto la contraseña!</button>
+      </div>
+
+  </div>
+    <div id="ok">
+        <h1>¡Acertaste!</h1>
+        <img src="francesc.jpg">
+        <a href="step3.html" class="button">Siguiente prueba</a>
+    </div>
+    <div id="ko">
+      <h1>Ooooooooooh respuesta incorrecta...</h1>
+      <img src="fail.gif" />
+      <button onClick="reset()" class="button">Inténtalo de nuevo</button>
+    </div>
+
+
+  </body>
+
+  <script>
+    var SHOW = 'block';
+    var HIDE = 'none';
+
+    function switchVisibility(ok, ko, q){
+      var okBlock =  document.getElementById('ok');
+      var koBlock =  document.getElementById('ko');
+      var questionBlock = document.getElementById('question');
+
+      okBlock.style.display = ok;
+      koBlock.style.display = ko;
+      questionBlock.style.display = q;
+    }
+
+    function showOk(){
+      switchVisibility(SHOW, HIDE, HIDE);
+    }
+
+    function showKO(){
+      switchVisibility(HIDE, SHOW, HIDE);
+    }
+
+    function reset(){
+      switchVisibility(HIDE, HIDE,SHOW);
+    }
+
+    reset();
+
+    //CUSTOM PER QUESTION
+    var password='penguin'
+
+    function check(){
+      var p = document.getElementById('password').value;
+      var result = p===password
+
+      if (result) {
+        showOk();
+      } else {
+        showKO();
+      }
+    }
+  </script>
+</html>
