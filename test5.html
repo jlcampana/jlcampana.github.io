@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <title>Prueba 1</title>
+  </head>
+
+  <body>
+    <div id="question">
+      <h1>Prueba número 5</h1>
+      <img src="olimpiadas.png">
+      <p>Contesta correctamente a <strong>todas estas preguntas</strong> sobre las Olimpiadas Modernas</p>
+      <h2>¿En qué <strong>año</strong> se celebraron las últimas Olimpiadas?</h2>
+      <div>
+          <input type="text" id="q0">
+      </div>
+      <h2>¿En qué <strong>país</strong> se celebraron las últimas Olimpiadas?</h2>
+      <div>
+          <input type="text" id="q1">
+      </div>
+      <h2>¿Cuántas <strong>medallas de oro</strong> ganó España en las últimas Olimpiadas?</h2>
+      <div>
+          <input type="text" id="q2">
+      </div>
+      <h2>De los siguentes deportes, di cual no es <strong>deporte olímpico</strong> (escribe la letra de la respuesta correcta)</h2>
+      <ol type="A">
+        <li>Gimnasia ritmica</li>
+        <li>Fútbol</li>
+        <li>Patinaje artístico (patinaje sobre hielo)</li>
+        <li>Natación polar (natación sobre hielo)</li>
+      </ol>
+      <div>
+          <input type="text" id="q3">
+      </div>
+
+      <div>
+          <button onClick="check()" class="button">Vamos a comprobar esas respuestas</button>
+      </div>
+
+
+  </div>
+    <div id="ok">
+        <h1>Eres un as del deporte</h1>
+        <img src="francesc.jpg">
+        <h2>La pista es: <h3>S</h3></h2>
+
+        <button onClick="next('test6')">¡Vamos, estás muy cerca del final!</button>
+    </div>
+    <div id="ko">
+      <h1>Oooh respuesta incorrecta...</h1>
+      <img src="fail.gif" />
+      <button onClick="reset()" class="button buttonRed">Inténtalo de nuevo</button>
+    </div>
+
+
+  </body>
+
+  <script>
+    var SHOW = 'block';
+    var HIDE = 'none';
+
+    function switchVisibility(ok, ko, q){
+      var okBlock =  document.getElementById('ok');
+      var koBlock =  document.getElementById('ko');
+      var questionBlock = document.getElementById('question');
+
+      okBlock.style.display = ok;
+      koBlock.style.display = ko;
+      questionBlock.style.display = q;
+    }
+
+    function showOk(){
+      switchVisibility(SHOW, HIDE, HIDE);
+    }
+
+    function showKO(){
+      switchVisibility(HIDE, SHOW, HIDE);
+    }
+
+    function reset(){
+      switchVisibility(HIDE, HIDE,SHOW);
+    }
+
+    function next(page){
+      window.location.href = page + '.html';
+    }
+
+    reset();
+
+    //CUSTOM PER QUESTION
+    var answers=['2016','BRASIL','15','D']
+
+    function check(){
+      var result = true;
+
+      for (var i = 0; i < answers.length; i++) {
+        var item = answers[i];
+        var p = document.getElementById('q'+ i).value || '';
+        result = result && p.trim().toUpperCase() === item.toUpperCase()
+
+      }
+
+      if (result) {
+        showOk();
+      } else {
+        showKO();
+      }
+    }
+  </script>
+</html>

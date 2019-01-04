@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <title>Prueba 1</title>
+  </head>
+
+  <body>
+    <div id="question">
+      <h1>¡Pruebas superadas!</h1>
+
+      <h3>Ya terminaron las pruebas. Espero que hayas apuntado en un papel todas las pistas.</h3>
+      <h3>Junta las pistas por orden y usa el <strong>código</strong> para descifras el mensaje y averiguar dónde está escondido tu regalo.</h3>
+      <h3>¿Necesitas el código? No será tan sencillo...</h3>
+      <h3>Escribe la suma de cada uno de los números de la fecha de nacimiento de tu padre.</h3>
+      <div>
+          <input type="number" id="sum">
+      </div>
+      <p><strong>Ejemplo:</strong> si la fecha fuera el <strong>28 de enero de 1977</strong>, el número sería: <strong>2</strong> + <strong>8</strong> + <strong>1</strong> (enero es el primer mes del año) + <strong>1</strong> + <strong>9</strong> + <strong>7</strong> + <strong>7</strong> = <strong>35</strong></p>
+
+      <div>
+          <button onClick="check()" class="button">¡Vamos, necesito el código!</button>
+      </div>
+
+  </div>
+    <div id="ok">
+        <h1>¡Bravo!</h1>
+        <h3>11 de mayo de 1973 = 11-5-1973; 1+1+5+1+9+7+3 = <strong>¡27!</strong></h3>
+        <h2>Superaste con éxito todas las pruebas. Ahora necesitas comprender el código para desencriptar el mensaje cifrado y encontrar tu regalo.</h2>
+        <h2>Ahora puedes pedir ayuda a cualquier invitado, <strong>sin importar si ya te había ayudado antes</strong>.</h2>
+
+        <button onClick="next('codigo')">Enséñame el código</button>
+    </div>
+    <div id="ko">
+      <h1>Oooh respuesta incorrecta...</h1>
+      <img src="fail.gif" />
+      <button onClick="reset()" class="button buttonRed">Inténtalo de nuevo</button>
+    </div>
+
+
+  </body>
+
+  <script>
+    var SHOW = 'block';
+    var HIDE = 'none';
+
+    function switchVisibility(ok, ko, q){
+      var okBlock =  document.getElementById('ok');
+      var koBlock =  document.getElementById('ko');
+      var questionBlock = document.getElementById('question');
+
+      okBlock.style.display = ok;
+      koBlock.style.display = ko;
+      questionBlock.style.display = q;
+    }
+
+    function showOk(){
+      switchVisibility(SHOW, HIDE, HIDE);
+    }
+
+    function showKO(){
+      switchVisibility(HIDE, SHOW, HIDE);
+    }
+
+    function reset(){
+      switchVisibility(HIDE, HIDE,SHOW);
+    }
+
+    function next(page){
+      window.location.href = page + '.html';
+    }
+
+    reset();
+
+    //CUSTOM PER QUESTION
+    var n='27'
+
+    function check(){
+      var p = document.getElementById('sum').value || '';
+      var result = p.trim().toUpperCase() === n.toUpperCase()
+
+      if (result) {
+        showOk();
+      } else {
+        showKO();
+      }
+    }
+  </script>
+</html>
