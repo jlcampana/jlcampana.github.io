@@ -28,8 +28,10 @@ img {
 }
 
 input {
-  padding: 2vw;
-  margin: 2vw;
+  padding: 32px;
+  margin: 2vw, 0, 2vw, 0;
+  width: 100%;
+  font-size: 24px;
 }
 
 button {
