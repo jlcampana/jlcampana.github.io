@@ -9,9 +9,17 @@
   <body>
     <h1>¡¡¡Bienvenido Francesc!!!</h1>
     <img src="francesc.jpg">
-    <p>Nosotros <strong>Los Reyes Magos</strong> hemos visto que te sueles aburrir en esta comida, así que le hemos pensado a Mari y Jose que nos ayuden con unas pruebas para que puedas conseguir tu regalo</p>
+    <p>Nosotros <strong>Los Reyes Magos</strong> hemos visto que te sueles aburrir en esta comida, así que le hemos pedido a Mari y Jose que nos ayuden con unas pruebas para ti, para que puedas conseguir tu regalo</p>
     <h2>¿Estás preparado?</h2>
 
-    <a href="step1.html" class="button">Sí, estoy preparado para mi regalo</a>
+    <div>
+      <button onClick="next(1)" class="buttonRed">Sí, estoy preparado para mi regalo</button>
+    </div>
   </body>
+
+  <script>
+    function next(step){
+      window.location.href = 'step' + step + '.html';
+    }
+  </script>
 </html>

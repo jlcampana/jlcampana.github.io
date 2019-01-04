@@ -33,17 +33,17 @@ input {
   margin: 2vw;
 }
 
-.button {
+button {
   font-family: 'Roboto', sans-serif;
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 2vw;
+  width: 100%;
 }
 
 .hidden{
@@ -51,7 +51,17 @@ input {
 }
 
 .show{
-  display: unset
+  display: block;
 }
 
-.button2 {background-color: #008CBA;}
+.trafficLight {
+  display:block;
+}
+
+.buttonBlue {background-color: #008CBA;}
+.buttonRed {background-color: #f44336;}
+.buttonYellow {
+  background-color: #FFFF00;
+  color: #4CAF50;
+}
+.buttonGreen {background-color: #4CAF50;}
