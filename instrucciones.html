@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <title>INSTRUCCIONES</title>
+
+  </head>
+  <body>
+    <h1>Instrucciones del juego</h1>
+
+    <p>Cada vez que acabes una prueba aparecerá <strong>una pista</strong>. Apúntate la pista en un papel para que no se te olvide porque necesitarás tenerlas todas para averiguar dónde está tu regalo.</p>
+    <p>No tengas miedo, las pruebas no son difíciles. Además tienes <strong>el comodín del invitado</strong></p>
+    <img src="conan.gif">
+    <h2>¿Qué es el comodín del invitado?</h2>
+    <p>Puedes pedir a un invitado que te ayude a resolver la prueba o incluso que la haga por ti. Pero cuidado: una vez te ayude el invitado <strong>no podrá volver a ayudarte</strong>. La próxima vez que quieras usar el comodín del invitado <strong>tendrás que pedírselo a otra persona</strong>.</p>
+    <h2>¿Lo has entendido todo?</h2>
+    <div>
+      <button onClick="next('test1')" class="buttonRed">¡Empecemos!</button>
+    </div>
+  </body>
+
+  <script>
+    function next(page){
+      window.location.href = page + '.html';
+    }
+  </script>
+</html>

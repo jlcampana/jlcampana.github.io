@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <title>Prueba 1</title>
+  </head>
+
+  <body>
+    <div id="question">
+      <h1>Prueba número 3</h1>
+
+      <p><strong>¡Atención con los semáforos!</strong> ¿Cuál es <strong>el color</strong> de la luz del semáforo que te permite cruzar la calle?</p>
+      <h2>Respuesta:</h2>
+      <div class="trafficLight">
+          <button onClick="check(true)" class="button buttonRed">Color verde</button><br>
+          <button onClick="check(false)" class="button buttonYellow">Color rojo</button><br>
+          <button onClick="check(false)" class="button buttonGreen">Color amarillo</button>
+      </div>
+
+
+  </div>
+    <div id="ok">
+        <h1>¡Muy bien! No te has dejado engañar jejeje...</h1>
+        <img src="francesc.jpg">
+        <h2>La pista es: <h3>XXXXXXXXXXXX</h3></h2>
+
+        <button onClick="next('test4')">Ya queda menos para el final!</button>
+    </div>
+    <div id="ko">
+      <h1>Oooh respuesta incorrecta...</h1>
+      <img src="fail.gif" />
+      <button onClick="reset()" class="button buttonRed">Inténtalo de nuevo</button>
+    </div>
+
+
+  </body>
+
+  <script>
+    var SHOW = 'block';
+    var HIDE = 'none';
+
+    function switchVisibility(ok, ko, q){
+      var okBlock =  document.getElementById('ok');
+      var koBlock =  document.getElementById('ko');
+      var questionBlock = document.getElementById('question');
+
+      okBlock.style.display = ok;
+      koBlock.style.display = ko;
+      questionBlock.style.display = q;
+    }
+
+    function showOk(){
+      switchVisibility(SHOW, HIDE, HIDE);
+    }
+
+    function showKO(){
+      switchVisibility(HIDE, SHOW, HIDE);
+    }
+
+    function reset(){
+      switchVisibility(HIDE, HIDE,SHOW);
+    }
+
+    function next(page){
+      window.location.href = page + '.html';
+    }
+
+    reset();
+
+    //CUSTOM PER QUESTION
+    function check(value){
+      if (value) {
+        showOk();
+      } else {
+        showKO();
+      }
+    }
+  </script>
+</html>

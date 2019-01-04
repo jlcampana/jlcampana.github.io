@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <title>Prueba 1</title>
+  </head>
+
+  <body>
+    <div id="question">
+      <h1>Prueba número 1</h1>
+
+      <p>¿Cuál es la <strong>fecha COMPLETA de nacimiento</strong> de tu padre?</p>
+      <h2>Respuesta:</h2>
+      <div>
+          <input type="date" id="fecha" value="01-01-1950">
+      </div>
+
+      <div>
+          <button onClick="check()">¡Ya he puesto la fecha!</button>
+      </div>
+
+  </div>
+    <div id="ok">
+        <h1>¡Acertaste!</h1>
+        <img src="francesc.jpg">
+        <h2>La pista es: <h3>XXXXXXXXXXXX</h3></h2>
+        <p>No olvides apuntarla en un papel</p>
+
+        <button onClick="next('test2')">Siguiente prueba</button>
+    </div>
+    <div id="ko">
+      <h1>Oooh respuesta incorrecta...</h1>
+      <img src="fail.gif" />
+      <button onClick="reset()" class="buttonRed">Inténtalo de nuevo</button>
+    </div>
+
+
+  </body>
+
+  <script>
+    var SHOW = 'block';
+    var HIDE = 'none';
+
+    function switchVisibility(ok, ko, q){
+      var okBlock =  document.getElementById('ok');
+      var koBlock =  document.getElementById('ko');
+      var questionBlock = document.getElementById('question');
+
+      okBlock.style.display = ok;
+      koBlock.style.display = ko;
+      questionBlock.style.display = q;
+    }
+
+    function showOk(){
+      switchVisibility(SHOW, HIDE, HIDE);
+    }
+
+    function showKO(){
+      switchVisibility(HIDE, SHOW, HIDE);
+    }
+
+    function reset(){
+      switchVisibility(HIDE, HIDE,SHOW);
+    }
+
+    function next(page){
+      window.location.href = page + '.html';
+    }
+
+    reset();
+
+    //CUSTOM PER QUESTION
+    var fechaCorrecta='1973-05-11'
+
+    function check(){
+      var fecha = document.getElementById("fecha").value;
+      var result = fecha===fechaCorrecta
+
+      if (result) {
+        showOk();
+      } else {
+        showKO();
+      }
+    }
+  </script>
+</html>
